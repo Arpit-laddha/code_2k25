@@ -1,1 +1,1 @@
-# Scam_2k25
+# course_2k25
