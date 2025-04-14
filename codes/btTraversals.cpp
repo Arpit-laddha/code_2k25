@@ -15,13 +15,20 @@ class Node{
 
 };
 
-void preorder(Node* root){
-    if(root==nullptr)return;
+vector<int> preorderTraversal(TreeNode* root) {
+        vector<int>output;
+        if (root==nullptr)return output;
 
-    cout<<root->data<<" ";
-    preorder(root->left);
-    preorder(root->right);
-}
+        output.push_back(root->val);
+        vector<int>leftTraversal= preorderTraversal(root->left);
+        vector<int>rightTraversal= preorderTraversal(root->right);
+
+        output.insert(output.end(),leftTraversal.begin(),leftTraversal.end());
+        output.insert(output.end(),rightTraversal.begin(),rightTraversal.end());
+
+        return output;
+
+    }
 
 void inorder(Node* root){
     if(root==nullptr)return;
